@@ -12,7 +12,7 @@ const sumOfTwoLowest = (arr) => {
   const validArr = arr.filter(
     (check) => typeof check === "number" && check >= 0
   );
-  // console.log warning when length of numbers is less than 4 and return unfiltered array.
+  // console.log warning when length of numbers is less than 4
   if (validArr.length < 4) {
     return "The array length is less than 4 and/or does not contain at least 4 numbers that are zero or greater.";
     // if value at i=0 is less than value at i=1, set lowest as value at i=0;
@@ -50,5 +50,5 @@ const sumOfTwoLowest = (arr) => {
   Their sum is --> ${sum}`;
 };
 
-arr = [4, 25, -7, 2, 7, "a", 1.5, 16, true, 0.5];
+arr = [4, "A", -7, 2, 7, "a", 1.5, 16, true, 0.5];
 console.log(sumOfTwoLowest(arr));
