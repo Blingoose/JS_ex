@@ -44,11 +44,11 @@ const sumOfTwoLowest = (arr) => {
         secondLowest = validArr[i];
       }
     }
-    sum = secondLowest + lowest;
   }
+  sum = secondLowest + lowest;
 
   return sum;
 };
 
-arr = [1, 1, 2, 1];
+arr = [4, 25, -7, 2, 7, "a", 1.5, 16, true];
 console.log(sumOfTwoLowest(arr));
