@@ -7,3 +7,22 @@
 //? findNextSquare(121) --> returns 144
 //? findNextSquare(625) --> returns 676
 //? findNextSquare(114) --> returns -1 since 114 is not a perfect square.
+
+const log = (l) => console.log(l);
+
+function nextPerfectSquare(num) {
+  let isNotPerfect = true;
+  if (num % Math.sqrt(num) === 0) {
+    let count = num;
+    while (isNotPerfect) {
+      count++;
+      if (count % Math.sqrt(count) === 0) {
+        isNotPerfect = false;
+        return count;
+      }
+    }
+  }
+  return -1;
+}
+
+log(nextPerfectSquare(64));
