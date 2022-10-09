@@ -17,6 +17,13 @@ function flatArr(arr) {
   return arr.reduce((acc, val) => acc.concat(val), []);
 }
 
+//function to check for missing pair I.E empty place.
+function isEmpty(arr) {
+  if (flatArr(arr).length % 2 !== 0) {
+    return true;
+  }
+}
+
 // function to check if array contains a string.
 function isString(arr) {
   return arr.find((str) => typeof str === "string");
@@ -24,6 +31,9 @@ function isString(arr) {
 
 const peopleOntheBus = (arr) => {
   const flatArray = flatArr(arr);
+  if (isEmpty(arr)) {
+    return "No empty spaces should be left, use 0 instead.";
+  }
   if (isString(flatArray)) {
     return "Numbers only!!";
   }
@@ -47,7 +57,7 @@ const peopleOntheBus = (arr) => {
 
 array = [
   [10, 0],
-  [3, 1],
+  [3, 5],
   [3, 10],
 ];
 console.log(peopleOntheBus(array));
