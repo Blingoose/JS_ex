@@ -16,32 +16,38 @@
 //? Note: Don't forget to convert the percent parameter as a percentage in the body of your function:
 //? if the parameter percent is 2 you have to convert it to 0.02.
 
-const nb_year = (p0, percent, aug, p) => {
+const nb_year = (popu, growthPercent, leaveOrCome, popuTarget) => {
   if (
-    typeof p0 !== "number" ||
-    typeof percent !== "number" ||
-    typeof aug !== "number" ||
-    typeof p !== "number"
+    typeof popu !== "number" ||
+    typeof growthPercent !== "number" ||
+    typeof leaveOrCome !== "number" ||
+    typeof popuTarget !== "number"
   ) {
     return "Numbers only";
   }
-  if (p0 <= 0 || percent < 0 || p <= 0) {
+  if (popu <= 0 || growthPercent < 0 || popuTarget <= 0) {
     return "Wrong Input, population must be > 0, precent >= 0, population growth target > 0";
-  } else if (p0 * (percent * 0.01) + aug < 0 && p0 <= p) {
-    return "Decreasing growth rate: Population growth target cannot be higher or equal to the current population.";
-  } else if (p0 * (percent * 0.01) + aug > 0 && p0 >= p) {
-    return "Increasing growth rate: Population growth target cannot be lower or equal to the current population.";
-  } else if (p0 * (percent * 0.01) + aug === 0) {
+  } else if (
+    popu * (growthPercent * 0.01) + leaveOrCome < 0 &&
+    popu <= popuTarget
+  ) {
+    return "Decreasing growth rate: Population growth target cannot be reached.";
+  } else if (
+    popu * (growthPercent * 0.01) + leaveOrCome > 0 &&
+    popu >= popuTarget
+  ) {
+    return "Increasing growth rate: Population growth target cannot be reached.";
+  } else if (popu * (growthPercent * 0.01) + leaveOrCome === 0) {
     return "No Increasing or decreasing growth rate at all, check the numbers.";
   } else {
     let countYears = 0;
     let isTrue = true;
     while (isTrue) {
       countYears++;
-      p0 += p0 * (percent * 0.01) + aug;
-      if (p0 >= p && aug >= 0) {
+      popu += popu * (growthPercent * 0.01) + leaveOrCome;
+      if (popu >= popuTarget && leaveOrCome >= 0) {
         isTrue = false;
-      } else if (p >= p0 && aug < 0) {
+      } else if (popuTarget >= popu && leaveOrCome < 0) {
         isTrue = false;
       }
     }
@@ -50,8 +56,9 @@ const nb_year = (p0, percent, aug, p) => {
 };
 
 //tests
+console.log(nb_year(1000, 2, 50, "Error"));
 console.log(nb_year(5000, 20, -1000, 6000));
-console.log(nb_year(5000, 15, -1000, 6000));
+console.log(nb_year(5000, 15, -1000, 10000));
 console.log(nb_year(5000, 2, 1000, 3000));
 console.log(nb_year(1000, 2, 50, 1200));
 console.log(nb_year(3000, 5, -200, 1500));
