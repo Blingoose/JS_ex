@@ -28,7 +28,7 @@ const peopleOntheBus = (arr) => {
     return "Numbers only!!";
   }
   //The second value in the first integer array is 0, since the bus is empty in the first bus stop.
-  if (flatArray[1] <= 0) {
+  if (flatArray[1] > 0) {
     return "On the first stop there should be 0 people who got off, only people who got in.";
   }
 
@@ -47,7 +47,7 @@ const peopleOntheBus = (arr) => {
 
 array = [
   [10, 0],
-  ["A", 1],
+  [3, 1],
   [3, 1],
 ];
 console.log(peopleOntheBus(array));
