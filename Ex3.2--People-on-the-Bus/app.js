@@ -33,12 +33,11 @@ const peopleOntheBus = (arr) => {
   const flatArray = flatArr(arr);
   if (isEmpty(arr)) {
     return "No empty spaces should be left, use 0 instead.";
-  }
-  if (isString(flatArray)) {
+  } else if (isString(flatArray)) {
     return "Numbers only!!";
   }
   //The second value in the first integer array is 0, since the bus is empty in the first bus stop.
-  if (flatArray[1] !== 0) {
+  else if (flatArray[1] !== 0) {
     return "On the first stop there should be 0 people who got off, only people who got in.";
   }
 
@@ -56,8 +55,8 @@ const peopleOntheBus = (arr) => {
 };
 
 array = [
-  [10, 0],
-  [3, 5],
+  [10, 1],
+  [3, 1],
   [3, 10],
 ];
 console.log(peopleOntheBus(array));
