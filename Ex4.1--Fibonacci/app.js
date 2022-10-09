@@ -10,9 +10,9 @@
 //? or this:
 //? 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
 
-const fib01 = [0, 1];
-const fib11 = [1, 1];
 function fibonacci(n, num) {
+  const fib01 = [0, 1];
+  const fib11 = [1, 1];
   if (num === 1) {
     for (let j = fib11.length; j <= n; j++) {
       fib11.push(fib11[j - 1] + fib11[j - 2]);
