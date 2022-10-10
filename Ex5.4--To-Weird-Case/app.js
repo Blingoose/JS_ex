@@ -7,3 +7,19 @@
 //? Examples:
 //? toWeirdCase( "String" );//=> returns "StRiNg"
 //? toWeirdCase( "Weird string case" );//=> returns "WeIrD StRiNg CaSe"
+
+function toWeirdCase(str) {
+  return str
+    .split(" ")
+    .map((a) =>
+      a.split("")
+        .map((e, i) => {
+          if (i % 2 === 0) {
+            return e.toUpperCase();
+          }
+          return e.toLowerCase();
+        }).join("")
+    ).join(" ");
+}
+
+console.log(toWeirdCase("weird string case and more"));
