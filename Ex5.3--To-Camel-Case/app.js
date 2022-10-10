@@ -18,7 +18,7 @@ function camelCase(str) {
   const firstLetter = str.charAt(0);
   let word = str.toLowerCase().split("");
   let count = 0;
-  //checking for dash/underscore and replacing them. If no dash/underscore found, print the word as is.
+  //checking for dash/underscore and replacing them. If no dash/underscore found, print error message.
   for (let i = 1; i < str.length; i++) {
     if (check.indexOf(str[i]) > -1) {
       word[i] = "";
