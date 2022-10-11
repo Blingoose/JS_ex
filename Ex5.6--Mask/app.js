@@ -11,3 +11,23 @@
 // "What was the name of your first pet?"
 //? maskify("Skippy") == "##ippy"
 //? maskify("Nananananananananananananananana Batman!") == "####################################man!"
+
+// Regex Explanation:
+//* dot .
+// Matches any character except linebreaks.
+
+//* Positive Lookahead (?=) -->
+// Matches a group after the main expression without including it in the result.
+// Example: foobarbarfoo
+// bar(?=bar) finds the 1st bar ("bar" which has "bar" after it.
+
+//* Quantifier {}
+// Matches the specified quantity of the previous token.
+// {1,3} will match 1 to 3. {3} will match exactly 3. {3, } will match 3 or more.
+
+function mask(input) {
+  return input.replace(/.(?=.{4})/g, "#");
+}
+
+console.log(mask("1cxzczxczx xzcxzczxczxc zxcxzcxzcxzc zxcxzcxzc"));
+console.log(mask("2874 4234 2546 3437"));

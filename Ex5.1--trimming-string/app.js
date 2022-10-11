@@ -8,7 +8,7 @@
 // console.log(result);
 
 function trimStr(str) {
-  if (typeof str !== "string" || str) {
+  if (typeof str !== "string") {
     return "Invalid input: empty trimStr() or non Strings not allowed.";
   } else if (str.length <= 1) {
     return "Must contain a string of 2 or more characters.";
